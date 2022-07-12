@@ -1,7 +1,13 @@
 spring:
   rabbitmq:
-    host: 124.222.211.143
+    host: 124.221.169.240
     port: 5672
-    virtual-host: /admin
-    username: admin
-    password: admin
+    virtual-host: /
+    username: guest
+    password: guest
+    # 打开消息确认机制
+    publisher-confirms: true
+    # 打开消息返回
+    publisher-returns: true
+    template:
+      mandatory: true

@@ -1,9 +1,15 @@
 package com.zjl.rabbitmq.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
 
 /**
  * @author: JunLog
@@ -11,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
  * Date: 2022/3/6 17:33
  */
 @Configuration
+@Slf4j
 public class RabbitMQConfig {
     //交换机名称
     public static final String ITEM_TOPIC_EXCHANGE = "springboot_item_topic_exchange";
@@ -35,5 +42,4 @@ public class RabbitMQConfig {
                                      @Qualifier("itemTopicExchange") Exchange exchange){
         return BindingBuilder.bind(queue).to(exchange).with("item.#").noargs();
     }
-
 }

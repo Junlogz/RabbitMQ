@@ -2,29 +2,35 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springboot-mq-reliability" />
         <module name="rabbitmq-demo" />
-        <module name="spring-rabbitmq-consumers" />
         <module name="spring-boot-rabbitmq-producer" />
         <module name="spring-rabbitmq-producer" />
         <module name="spring-boot-rabbitmq-consumer" />
+        <module name="spring-rabbitmq-consumers" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="mq-reliability-producer" target="1.8" />
       <module name="rabbitmq-demo" target="1.8" />
       <module name="spring-boot-rabbitmq-consumer" target="1.8" />
       <module name="spring-boot-rabbitmq-producer" target="1.8" />
       <module name="spring-rabbitmq-consumers" target="1.8" />
       <module name="spring-rabbitmq-producer" target="1.8" />
+      <module name="springboot-mq-reliability" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mq-reliability-producer" options="-parameters" />
       <module name="spring-boot-rabbitmq-consumer" options="-parameters" />
       <module name="spring-boot-rabbitmq-producer" options="-parameters" />
+      <module name="springboot-mq-reliability" options="-parameters" />
     </option>
   </component>
 </project>

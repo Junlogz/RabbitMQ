@@ -1,0 +1,39 @@
+server:
+  port: 9003
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mqtest?characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 30
+      minimum-idle: 10
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 124.221.169.240
+    publisher-confirms: true
+    publisher-returns: true
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*/*.xml
+  type-aliases-package: com.mq.po
+  configuration:
+    map-underscore-to-camel-case: true
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+
+logging:
+  pattern:
+    console: "%d - %msg%n"
+  level:
+    org.springframework.web: debug
+    com.mq: debug
+
